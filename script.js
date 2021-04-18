@@ -75,7 +75,14 @@ function post() {
   let age_limit = document.querySelector("#age_limit").value;
   let release_date = document.querySelector("#release_date").value;
   let price = document.querySelector("#price").value;
+
+  let genre_array = [];
   let genre = document.querySelectorAll(`input[name="genre"]:checked`);
+
+  for (var x = 0; x < genre.length; x++) {
+    genre_array.push(genre[x].value);
+  }
+
   let developer = document.querySelector("#developer").value;
   let desc = document.querySelector("#desc").value;
   let multiplayer;
@@ -87,19 +94,25 @@ function post() {
   }
 
   let metascore = document.querySelector("#metascore").value;
+
+  let platforms_array = [];
   let platforms = document.querySelectorAll(`input[name="platforms"]:checked`);
+
+  for (var x = 0; x < platforms.length; x++) {
+    platforms_array.push(platforms[x].value);
+  }
 
   const data = {
     title: title,
     age_limit: age_limit,
     release_date: release_date,
     price: price,
-    genre: genre,
+    genre: genre_array,
     developer: developer,
     desc: desc,
     multiplayer: multiplayer,
     metascore: metascore,
-    platforms: platforms,
+    platforms: platforms_array,
   };
 
   const postData = JSON.stringify(data);
