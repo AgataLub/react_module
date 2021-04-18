@@ -25,6 +25,8 @@ function displayPercentage() {
 }
 
 function get() {
+  document.querySelector(".appendhere").innerHTML = "";
+
   fetch("https://videogames-3a39.restdb.io/rest/videogames", {
     method: "get",
     headers: {
@@ -64,7 +66,6 @@ function showGame(game) {
     copy.querySelector(".multiplayer").textContent = "Singleplayer";
   }
 
-  document.querySelector(".appendhere").innerHTML = "";
   document.querySelector(".appendhere").appendChild(copy);
 }
 
