@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document:</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Games Worth Playing</h1>
+    <template>
+      <div class="tile">
+        <h2>Title:</h2>
+        <ul>
+          <li>Age Limit: <span class="age_limit">Age Limit</span></li>
+          <li>Release Date: <span class="release_date">Publishing Date</span></li>
+          <li>Price: <span class="price">Price</span></li>
+          <li>Genre: <span class="genre">Genre</span></li>
+          <li>Developer: <span class="developer">Developer</span></li>
+          <li>Description: <span class="desc">Description</span></li>
+          <li>Multiplayer: <span class="multiplayer">Multiplayer</span></li>
+          <li>Platforms: <span class="platforms">Platforms</span></li>
+          <li>Metascore: <span class="metascore">Metascore</span></li>
+        </ul>
+      </div>
+    </template>
+
+    <main>
+      <form>
+        <fieldset>
+          <legend><h2>Add a Video Game:</h2></legend>
+
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input id="title" name="title" type="text" placeholder="Diablo" required />
+            <!-- <span class="error">Invalid</span>
+            <span class="hint">This is a hint</span> -->
+          </div>
+
+          <div class="form-group">
+            <label for="age_limit">Age Limit:</label>
+            <input id="age_limit" name="age_limit" type="number" />
+          </div>
+
+          <div class="form-group">
+            <label for="release_date">Date:</label>
+            <input id="release_date" name="release_date" type="date" required />
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input id="price" name="price" type="number" required />
+          </div>
+
+          <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input id="genre" name="genre" type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label for="developer">Developer:</label>
+            <input id="developer" name="developer" type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label for="desc">Description:</label>
+            <input id="desc" name="desc" type="text" />
+          </div>
+
+          <div class="form-group">
+            <p>Multiplayer:</p>
+            <div>
+              <input id="single" name="multiplayer" type="radio" required />
+              <label for="single">Singleplayer</label>
+            </div>
+            <div>
+              <input id="multiplayer" name="multiplayer" type="radio" required />
+              <label for="multiplayer">Multiplayer</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="metascore">Metascore:</label>
+            <input id="metascore" name="metascore" type="range" list="tickmarks" min="0" max="100" value="1" step="100" />
+            <datalist id="tickmarks"> </datalist>
+          </div>
+
+          <div class="form-group">
+            <p>Platforms:</p>
+            <div><input id="win" name="platforms" type="checkbox" /> <label for="win">Windows</label></div>
+            <div><input id="macos" name="platforms" type="checkbox" /> <label for="macos">MacOS</label></div>
+            <div><input id="switch" name="platforms" type="checkbox" /> <label for="switch">Nintendo Switch</label></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Pseudoclasses and CSS Styling</legend>
+          <div class="form-group"></div>
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input id="email" name="title" type="email" placeholder="i. e. jan@kowalski.pl" required />
+          </div>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+      </form>
+      <div class="appendhere"></div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

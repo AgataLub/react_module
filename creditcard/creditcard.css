@@ -1,0 +1,16 @@
+fieldset {
+  width: 500px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  padding: 5px;
+}
+
+.form-field-date {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
