@@ -39,7 +39,7 @@
 
           <div class="form-group">
             <label for="age_limit">Age Limit:</label>
-            <input id="age_limit" name="age_limit" type="number" />
+            <input id="age_limit" name="age_limit" type="number" placeholder="12"/>
           </div>
 
           <div class="form-group">
@@ -48,13 +48,19 @@
           </div>
 
           <div class="form-group">
-            <label for="price">Price:</label>
-            <input id="price" name="price" type="number" required />
+            <label for="price">Price: (euro)</label>
+            <input id="price" name="price" type="number" required placeholder="100"/>
           </div>
 
           <div class="form-group">
-            <label for="genre">Genre:</label>
-            <input id="genre" name="genre" type="text" required />
+            <p>Genre:</p>
+            <div><input id="fps" name="genre" type="checkbox" /> <label for="fps">FPS</label></div>
+            <div><input id="rpg" name="genre" type="checkbox" /> <label for="rpg">RPG</label></div>
+            <div><input id="puzzle" name="genre" type="checkbox" /> <label for="puzzle">Puzzle</label></div>
+            <div><input id="simulation" name="genre" type="checkbox" /> <label for="simulation">Simulation</label></div>
+            <div><input id="farming" name="genre" type="checkbox" /> <label for="farming">Farming</label></div>
+            <div><input id="action" name="genre" type="checkbox" /> <label for="action">Action</label></div>
+            <div><input id="strategy" name="genre" type="checkbox" /> <label for="strategy">Strategy</label></div>
           </div>
 
           <div class="form-group">
@@ -81,8 +87,9 @@
 
           <div class="form-group">
             <label for="metascore">Metascore:</label>
-            <input id="metascore" name="metascore" type="range" list="tickmarks" min="0" max="100" value="1" step="100" />
+            <input id="metascore" name="metascore" type="range" list="tickmarks" min="1" max="100" step="1" />
             <datalist id="tickmarks"> </datalist>
+            <div id="percentage" type="text" /></div>
           </div>
 
           <div class="form-group">
@@ -92,17 +99,7 @@
             <div><input id="switch" name="platforms" type="checkbox" /> <label for="switch">Nintendo Switch</label></div>
           </div>
         </fieldset>
-        <fieldset>
-          <legend>Pseudoclasses and CSS Styling</legend>
-          <div class="form-group"></div>
-
-          <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input id="email" name="title" type="email" placeholder="i. e. jan@kowalski.pl" required />
-          </div>
-        </fieldset>
-
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit">Submit</button>
       </form>
       <div class="appendhere"></div>
     </main>

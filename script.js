@@ -3,6 +3,10 @@ window.addEventListener("load", init);
 function init() {
   get();
   prepareTickmarks();
+
+  document.querySelector("#metascore").addEventListener("input", displayPercentage);
+
+  document.querySelector("#submit").addEventListener("click", post);
 }
 
 function prepareTickmarks() {
@@ -12,6 +16,12 @@ function prepareTickmarks() {
     element.setAttribute("value", i);
     document.querySelector("#tickmarks").appendChild(element);
   }
+}
+
+function displayPercentage() {
+  let percentage = document.querySelector("#metascore").value;
+  console.log("displayPercentage " + percentage);
+  document.querySelector("#percentage").innerHTML = "<h2>" + percentage + "</h2>";
 }
 
 function get() {
@@ -32,27 +42,64 @@ function showGame(game) {
   const template = document.querySelector("template").content;
   const copy = template.cloneNode(true);
 
-  copy.querySelector("h2").textContent = game.title;
-  copy.querySelector(".metascore").textContent = game.metascore;
-  copy.querySelector(".age_limit").textContent = game.age_limit;
+  var platforms = game.platforms;
+  platforms = platforms.join(`, `);
 
+  var genre = game.genre;
+  genre = genre.join(`, `);
+
+  copy.querySelector("h2").textContent = game.title;
+  copy.querySelector(".age_limit").textContent = game.age_limit;
+  copy.querySelector(".release_date").textContent = game.release_date;
+  copy.querySelector(".price").textContent = game.price + " EUR";
+  copy.querySelector(".genre").textContent = game.genre;
+  copy.querySelector(".developer").textContent = game.developer;
+  copy.querySelector(".desc").textContent = game.desc;
+  copy.querySelector(".platforms").textContent = platforms;
+  copy.querySelector(".metascore").textContent = game.metascore;
+
+  if (game.multiplayer) {
+    copy.querySelector(".multiplayer").textContent = "Multiplayer";
+  } else {
+    copy.querySelector(".multiplayer").textContent = "Singleplayer";
+  }
+
+  document.querySelector(".appendhere").innerHTML = "";
   document.querySelector(".appendhere").appendChild(copy);
 }
 
 function post() {
   console.log("post");
 
+  let title = document.querySelector("#title").value;
+  let age_limit = document.querySelector("#age_limit").value;
+  let release_date = document.querySelector("#release_date").value;
+  let price = document.querySelector("#price").value;
+  let genre = document.querySelectorAll(`input[name="genre"]:checked`);
+  let developer = document.querySelector("#developer").value;
+  let desc = document.querySelector("#desc").value;
+  let multiplayer;
+
+  if (document.querySelector("#single").value) {
+    multiplayer = false;
+  } else {
+    multiplayer = true;
+  }
+
+  let metascore = document.querySelector("#metascore").value;
+  let platforms = document.querySelectorAll(`input[name="platforms"]:checked`);
+
   const data = {
-    title: "Fortnite1",
-    age_limit: 12,
-    release_date: "2000-01-01T00:00:00.000Z",
-    price: 100,
-    genre: "FPS",
-    developer: "Llamas",
-    desc: "Shooter",
-    multiplayer: true,
-    metascore: 90,
-    platforms: ["Nintendo Switch", "MacOS", "Windows"],
+    title: title,
+    age_limit: age_limit,
+    release_date: release_date,
+    price: price,
+    genre: genre,
+    developer: developer,
+    desc: desc,
+    multiplayer: multiplayer,
+    metascore: metascore,
+    platforms: platforms,
   };
 
   const postData = JSON.stringify(data);
