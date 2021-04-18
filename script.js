@@ -81,7 +81,8 @@ function post() {
   let genre = document.querySelectorAll(`input[name="genre"]:checked`);
 
   for (var x = 0; x < genre.length; x++) {
-    genre_array.push(genre[x].textContent);
+    let label_text = genre[x].nextElementSibling.textContent;
+    genre_array.push(label_text);
   }
 
   let developer = document.querySelector("#developer").value;
@@ -100,7 +101,9 @@ function post() {
   let platforms = document.querySelectorAll(`input[name="platforms"]:checked`);
 
   for (var x = 0; x < platforms.length; x++) {
-    platforms_array.push(platforms[x].textContent);
+    let label_text = platforms[x].nextElementSibling.textContent;
+
+    platforms_array.push(label_text);
   }
 
   const data = {
